@@ -7,6 +7,7 @@ import "../styles/global.css";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Descubre Toledo - Turismo en Toledo, Colombia</title>
+    <script src="/src/scripts/goblal.ts"></script>
   </head>
   <body
     class="bg-gray-100 text-gray-800 font-montserrat leading-normal tracking-normal"
@@ -15,14 +16,67 @@ import "../styles/global.css";
     <header class="bg-white shadow-lg sticky top-0 z-50">
       <div class="container mx-auto flex justify-between items-center p-5">
         <div class="text-2xl font-bold">Toledo Turismo</div>
-        <nav class="flex space-x-6">
+        <button
+          id="menu-button"
+          class="block lg:hidden px-4 py-2 text-gray-800 hover:text-blue-500"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+        <nav id="menu" class="hidden lg:flex space-x-6">
           <a href="#" class="hover:text-blue-500">Inicio</a>
-          <a href="#" class="hover:text-blue-500">Categorías</a>
+          <a href="#categorias" class="hover:text-blue-500">Categorías</a>
           <a href="#" class="hover:text-blue-500">Sobre Nosotros</a>
           <a href="#" class="hover:text-blue-500">Contacto</a>
         </nav>
       </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div
+      id="mobile-menu"
+      class="lg:hidden fixed inset-0 bg-white shadow-lg z-50 hidden"
+    >
+      <div class="flex justify-between items-center p-4">
+        <div class="text-2xl font-bold">Toledo Turismo</div>
+        <button id="close-menu" class="text-gray-800">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <nav class="flex flex-col p-4 space-y-4">
+        <a href="#" class="text-gray-800 hover:text-blue-500">Inicio</a>
+        <a href="#categorias" class="text-gray-800 hover:text-blue-500"
+          >Categorías</a
+        >
+        <a href="#" class="text-gray-800 hover:text-blue-500">Sobre Nosotros</a>
+        <a href="#" class="text-gray-800 hover:text-blue-500">Contacto</a>
+      </nav>
+    </div>
+
+    <!-- Rest of the content remains unchanged -->
 
     <!-- Hero Section -->
     <section
@@ -39,7 +93,7 @@ import "../styles/global.css";
             Un paraíso escondido en las montañas de Colombia.
           </p>
           <a
-            href="#"
+            href="#categorias"
             class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-600 transition"
             >Explora ahora</a
           >
@@ -48,12 +102,15 @@ import "../styles/global.css";
     </section>
 
     <!-- Categorías Principales -->
-    <section id="categorias" class="container mx-auto py-16">
+    <div class="mb-10" id="categorias"></div>
+    <section class="container mx-auto py-16">
       <h2 class="text-4xl font-bold text-center mb-10">
         Explora Nuestras Categorías
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+        <div
+          class="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
+        >
           <img
             src="src/images/Categorias/Turismo Natural.webp"
             alt="Turismo Natural"
@@ -67,7 +124,9 @@ import "../styles/global.css";
             </p>
           </div>
         </div>
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+        <div
+          class="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
+        >
           <img
             src="src/images/Categorias/Patrimonio Cultural.webp"
             alt="Patrimonio Cultural"
@@ -81,7 +140,9 @@ import "../styles/global.css";
             </p>
           </div>
         </div>
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+        <div
+          class="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
+        >
           <img
             src="src/images/Categorias/Gastronomia.webp"
             alt="Gastronomía"
@@ -92,7 +153,9 @@ import "../styles/global.css";
             <p>Saborea los platos típicos y delicias culinarias locales.</p>
           </div>
         </div>
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+        <div
+          class="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
+        >
           <img
             src="src/images/Categorias/Alojamiento.webp"
             alt="Alojamiento"
