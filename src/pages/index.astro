@@ -1,16 +1,140 @@
 ---
-
+import "../styles/global.css";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Descubre Toledo - Turismo en Toledo, Colombia</title>
+  </head>
+  <body
+    class="bg-gray-100 text-gray-800 font-montserrat leading-normal tracking-normal"
+  >
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+      <div class="container mx-auto flex justify-between items-center p-5">
+        <div class="text-2xl font-bold">Toledo Turismo</div>
+        <nav class="flex space-x-6">
+          <a href="#" class="hover:text-blue-500">Inicio</a>
+          <a href="#" class="hover:text-blue-500">Categorías</a>
+          <a href="#" class="hover:text-blue-500">Sobre Nosotros</a>
+          <a href="#" class="hover:text-blue-500">Contacto</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      class="relative h-screen bg-cover bg-center"
+      style="background-image: url('src/images/Imagen principal toledo.jpg');"
+    >
+      <div class="absolute inset-0 bg-black opacity-50"></div>
+      <div
+        class="relative flex items-center justify-center h-full text-center text-white"
+      >
+        <div>
+          <h1 class="text-5xl font-bold mb-6">Descubre Toledo</h1>
+          <p class="text-xl mb-8">
+            Un paraíso escondido en las montañas de Colombia.
+          </p>
+          <a
+            href="#"
+            class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-600 transition"
+            >Explora ahora</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Categorías Principales -->
+    <section id="categorias" class="container mx-auto py-16">
+      <h2 class="text-4xl font-bold text-center mb-10">
+        Explora Nuestras Categorías
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+          <img
+            src="src/images/Categorias/Turismo Natural.webp"
+            alt="Turismo Natural"
+            class="w-full h-48 object-cover"
+          />
+          <div class="p-5">
+            <h3 class="text-2xl font-bold mb-3">Turismo Natural</h3>
+            <p>
+              Descubre los paisajes y rutas naturales más impresionantes de
+              Toledo.
+            </p>
+          </div>
+        </div>
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+          <img
+            src="src/images/Categorias/Patrimonio Cultural.webp"
+            alt="Patrimonio Cultural"
+            class="w-full h-48 object-cover"
+          />
+          <div class="p-5">
+            <h3 class="text-2xl font-bold mb-3">Patrimonio Cultural</h3>
+            <p>
+              Sumérgete en la historia y tradiciones culturales de nuestro
+              municipio.
+            </p>
+          </div>
+        </div>
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+          <img
+            src="src/images/Categorias/Gastronomia.webp"
+            alt="Gastronomía"
+            class="w-full h-48 object-cover"
+          />
+          <div class="p-5">
+            <h3 class="text-2xl font-bold mb-3">Gastronomía</h3>
+            <p>Saborea los platos típicos y delicias culinarias locales.</p>
+          </div>
+        </div>
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+          <img
+            src="src/images/Categorias/Alojamiento.webp"
+            alt="Alojamiento"
+            class="w-full h-48 object-cover"
+          />
+          <div class="p-5">
+            <h3 class="text-2xl font-bold mb-3">Alojamiento</h3>
+            <p>Encuentra el lugar perfecto para descansar durante tu visita.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Mapa de Ubicación -->
+    <section class="py-16">
+      <div class="container mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-10">
+          Visítanos en Toledo
+        </h2>
+        <div class="aspect-w-16 aspect-h-9">
+          <!-- Reemplaza con tu código de inserción de Google Maps -->
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.810249840373!2d-77.07002138546037!3d8.572373993350327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e7d2b6365a073ef%3A0x909a9b9f003f3b03!2sToledo%2C%20Norte%20de%20Santander!5e0!3m2!1ses!2sco!4v1697070165940!5m2!1ses!2sco"
+            width="100%"
+            height="450"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 py-10">
+      <div class="container mx-auto text-center">
+        <p>&copy; 2024 Toledo Turismo. Todos los derechos reservados.</p>
+        <div class="flex justify-center space-x-6 mt-4">
+          <a href="#" class="hover:text-white">Facebook</a>
+          <a href="#" class="hover:text-white">Instagram</a>
+          <a href="#" class="hover:text-white">Twitter</a>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
