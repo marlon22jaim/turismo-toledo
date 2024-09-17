@@ -1,0 +1,73 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="font-[Poppins] text-gray-800">
+    <header class="fixed w-full z-50 bg-white bg-opacity-90 backdrop-blur-md shadow-md">
+      <div class="container mx-auto px-4">
+        <nav class="flex justify-between items-center py-4">
+          <a href="/" class="text-2xl font-bold text-blue-600">Toledo Mágico</a>
+          <ul class="hidden md:flex space-x-6">
+            <li><a href="#" class="hover:text-blue-600 transition duration-300">Inicio</a></li>
+            <li><a href="#categorias" class="hover:text-blue-600 transition duration-300">Destinos</a></li>
+            <li><a href="#" class="hover:text-blue-600 transition duration-300">Sobre Nosotros</a></li>
+            <li><a href="#" class="hover:text-blue-600 transition duration-300">Contacto</a></li>
+          </ul>
+          <button class="md:hidden text-gray-500 hover:text-gray-800 focus:outline-none">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+    
+    <slot />
+    
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Toledo Mágico</h3>
+            <p class="text-gray-400">Descubre la magia, la cultura y la belleza de Toledo con nosotros.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Enlaces Rápidos</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Inicio</a></li>
+              <li><a href="categorias" class="text-gray-400 hover:text-white transition duration-300">Destinos</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Sobre Nosotros</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Contacto</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Síguenos</h3>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
+          <p>&copy; 2024 Toledo Mágico. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+export function getStaticPaths() {
+  return [
+    {params: {categoria: 'naturaleza'}},
+    {params: {categoria: 'cultura'}},
+    {params: {categoria: 'gastronomia'}}
+  ];
+}
+
+const { categoria } = Astro.params;
+
+interface Place {
+  name: string;
+  description: string;
+  image: string;
+  activities: string[];
+  contact: string;
+  location: string;
+}
+
+const places: Record<string, Place[]> = {
+  naturaleza: [
+    {
+      name: "Parque Nacional Natural Tamá",
+      description: "Reserva natural con una rica biodiversidad y hermosos paisajes.",
+      image: "https://images.unsplash.com/photo-1565036558162-e551c82632bb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29sb21iaWElMjBuYXR1cmV8ZW58MHx8MHx8fDA%3D",
+      activities: ["Senderismo", "Observación de aves", "Camping"],
+      contact: "+57 123 456 7890",
+      location: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d-72.3887813!3d7.2983333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e66459ab0c3c92d%3A0x6b94f6c7a5d3d7f0!2sParque%20Nacional%20Natural%20Tam%C3%A1!5e0!3m2!1ses!2sco!4v1637000000000!5m2!1ses!2sco"
+    }
+  ],
+  cultura: [
+    {
+      name: "Iglesia San Luis Gonzaga",
+      description: "Hermosa iglesia colonial con arquitectura única.",
+      image: "https://images.unsplash.com/photo-1543039625-14cbd3802e7d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y29sb21iaWElMjBjaHVyY2h8ZW58MHx8MHx8fDA%3D",
+      activities: ["Visitas guiadas", "Fotografía", "Asistir a misa"],
+      contact: "+57 123 456 7891",
+      location: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d-72.4887813!3d7.3083333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e66459ab0c3c92d%3A0x6b94f6c7a5d3d7f0!2sIglesia%20San%20Luis%20Gonzaga!5e0!3m2!1ses!2sco!4v1637000000000!5m2!1ses!2sco"
+    }
+  ],
+  gastronomia: [
+    {
+      name: "Restaurante El Sabor Toledano",
+      description: "Auténtica cocina local con platos tradicionales de la región.",
+      image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29sb21iaWFuJTIwZm9vZHxlbnwwfHwwfHx8MA%3D%3D",
+      activities: ["Degustación de platos típicos", "Clases de cocina", "Cenas temáticas"],
+      contact: "+57 123 456 7892",
+      location: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d-72.4787813!3d7.3183333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e66459ab0c3c92d%3A0x6b94f6c7a5d3d7f0!2sRestaurante%20El%20Sabor%20Toledano!5e0!3m2!1ses!2sco!4v1637000000000!5m2!1ses!2sco"
+    }
+  ]
+};
+
+const categoryNames: Record<string, string> = {
+  naturaleza: "Naturaleza",
+  cultura: "Cultura",
+  gastronomia: "Gastronomía"
+};
+
+const categoryPlaces = places[categoria];
+---
+
+<Layout title={`${categoryNames[categoria]} en Toledo - Turismo Mágico`}>
+  <main class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-12">
+      <h1 class="text-4xl font-bold text-center mb-12">{categoryNames[categoria]} en Toledo</h1>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {categoryPlaces.map((place) => (
+          <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+            <Image src={place.image} alt={place.name} width={500} height={300} class="w-full h-48 object-cover" />
+            <div class="p-6">
+              <h2 class="text-2xl font-semibold mb-2">{place.name}</h2>
+              <p class="text-gray-600 mb-4">{place.description}</p>
+              <h3 class="font-semibold mb-2">Actividades:</h3>
+              <ul class="list-disc list-inside mb-4">
+                {place.activities.map((activity) => (
+                  <li>{activity}</li>
+                ))}
+              </ul>
+              <p class="mb-4"><strong>Contacto:</strong> {place.contact}</p>
+              <h3 class="font-semibold mb-2">Ubicación:</h3>
+              <div class="aspect-w-16 aspect-h-9 mb-4">
+                <iframe src={place.location} width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="text-center mt-8">
+        <a href="/" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300">Volver a Inicio</a>
+      </div>
+    </div>
+  </main>
+</Layout>
