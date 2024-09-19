@@ -1,0 +1,152 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: "alojamiento/hotel-ejemplo" } },
+    { params: { slug: "piscinas/piscina-ejemplo" } },
+    // Add more routes here
+  ];
+}
+
+const { slug } = Astro.params;
+const [categoria, lugarId] = slug.split('/');
+
+interface DetailedPlace {
+  id: string;
+  name: string;
+  description: string;
+  images: string[];
+  services: string[];
+  phone: string;
+  whatsapp: string;
+  location: string;
+}
+
+const places: Record<string, Record<string, DetailedPlace>> = {
+  alojamiento: {
+    "hotel-ejemplo": {
+      id: "hotel-ejemplo",
+      name: "Hotel Ejemplo",
+      description: "Un cómodo hotel en el corazón de Toledo, perfecto para tu estadía.",
+      images: [
+        "/images/alojamiento/hotel-ejemplo-1.jpg",
+        "/images/alojamiento/hotel-ejemplo-2.jpg",
+        "/images/alojamiento/hotel-ejemplo-3.jpg",
+      ],
+      services: ["WiFi gratis", "Desayuno incluido", "Piscina", "Estacionamiento"],
+      phone: "+57 123 456 7890",
+      whatsapp: "https://wa.me/573001234567",
+      location: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d-72.3887813!3d7.2983333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e66459ab0c3c92d%3A0x6b94f6c7a5d3d7f0!2sHotel%20Ejemplo!5e0!3m2!1ses!2sco!4v1637000000000!5m2!1ses!2sco",
+    },
+  },
+  piscinas: {
+    "piscina-ejemplo": {
+      id: "piscina-ejemplo",
+      name: "Piscina Ejemplo",
+      description: "Refrescante piscina con hermosas vistas y excelentes instalaciones.",
+      images: [
+        "/images/piscinas/piscina-ejemplo-1.jpg",
+        "/images/piscinas/piscina-ejemplo-2.jpg",
+        "/images/piscinas/piscina-ejemplo-3.jpg",
+      ],
+      services: ["Toboganes", "Área de niños", "Snack bar", "Vestidores"],
+      phone: "+57 123 456 7891",
+      whatsapp: "https://wa.me/573001234568",
+      location: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d-72.3887813!3d7.2983333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e66459ab0c3c92d%3A0x6b94f6c7a5d3d7f0!2sPiscina%20Ejemplo!5e0!3m2!1ses!2sco!4v1637000000000!5m2!1ses!2sco",
+    },
+  },
+  // Add more categories and places here
+};
+
+const place = places[categoria][lugarId];
+
+if (!place) {
+  return Astro.redirect('/404');
+}
+---
+
+<Layout title={`${place.name} - Toledo Turismo`}>
+  <main class="bg-gray-100 min-h-screen py-12">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold text-center mb-8">{place.name}</h1>
+      
+      <!-- Photo gallery -->
+      <div class="mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {place.images.map((image, index) => (
+            <Image
+              src={image}
+              alt={`${place.name} - Image ${index + 1}`}
+              width={400}
+              height={300}
+              class="w-full h-64 object-cover rounded-lg shadow-md"
+            />
+          ))}
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+        <h2 class="text-2xl font-semibold mb-4">Descripción</h2>
+        <p class="text-gray-700">{place.description}</p>
+      </div>
+
+      <!-- Services -->
+      <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+        <h2 class="text-2xl font-semibold mb-4">Servicios</h2>
+        <ul class="list-disc list-inside">
+          {place.services.map((service) => (
+            <li class="text-gray-700">{service}</li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+        <h2 class="text-2xl font-semibold mb-4">Contacto</h2>
+        <p class="text-gray-700 mb-2">
+          <strong>Teléfono:</strong> {place.phone}
+        </p>
+        <p class="text-gray-700">
+          <strong>WhatsApp:</strong>{" "}
+          <a
+            href={place.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-600 hover:underline"
+          >
+            Contactar por WhatsApp
+          </a>
+        </p>
+      </div>
+
+      <!-- Location -->
+      <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+        <h2 class="text-2xl font-semibold mb-4">Ubicación</h2>
+        <div class="aspect-w-16 aspect-h-9">
+          <iframe
+            src={place.location}
+            width="100%"
+            height="450"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title={`Ubicación de ${place.name}`}
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="text-center mt-8">
+        <a
+          href={`/categoria/${categoria}`}
+          class="inline-block bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300"
+        >
+          Volver a {categoria}
+        </a>
+      </div>
+    </div>
+  </main>
+</Layout>
