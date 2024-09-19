@@ -1,10 +1,11 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
+import "photoswipe/style.css";
 
 export function getStaticPaths() {
     return [
-        { params: { slug: "alojamiento/hotel-ejemplo" } },
+        { params: { slug: "alojamiento/hotel-la_nona" } },
         { params: { slug: "piscinas/piscina-ejemplo" } },
         // Añade más rutas aquí
     ];
@@ -17,6 +18,8 @@ interface MediaItem {
     type: "image" | "video";
     src: string;
     alt?: string;
+    width?: number;
+    height?: number;
 }
 
 interface DetailedPlace {
@@ -32,30 +35,240 @@ interface DetailedPlace {
 
 const places: Record<string, Record<string, DetailedPlace>> = {
     alojamiento: {
-        "hotel-ejemplo": {
-            id: "hotel-ejemplo",
-            name: "Hotel Ejemplo",
+        "hotel-la_nona": {
+            id: "hotel-la_nona",
+            name: "Hotel LA NONA",
             description:
                 "Un cómodo hotel en el corazón de Toledo, perfecto para tu estadía.",
             media: [
                 {
-                    type: "image",
-                    src: "/images/alojamiento/hotel-ejemplo-1.jpg",
-                    alt: "Fachada del Hotel Ejemplo",
-                },
-                {
-                    type: "image",
-                    src: "/images/alojamiento/hotel-ejemplo-2.jpg",
-                    alt: "Habitación del Hotel Ejemplo",
-                },
-                {
                     type: "video",
-                    src: "/videos/alojamiento/hotel-ejemplo-tour.mp4",
+                    src: "/videos/alojamiento/hotel_la_nona/hotel-la-nona-tour.MOV",
                 },
                 {
                     type: "image",
-                    src: "/images/alojamiento/hotel-ejemplo-3.jpg",
-                    alt: "Piscina del Hotel Ejemplo",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (1).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (2).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (3).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (4).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (5).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (6).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (7).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (8).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (9).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (10).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (11).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (12).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (13).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (14).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (15).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (16).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (17).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (18).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (19).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (20).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (21).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (22).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (23).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (24).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (25).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (26).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (27).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (28).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (29).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (30).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (31).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (32).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (33).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (34).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (35).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (36).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (37).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (38).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (39).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (40).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (41).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (42).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (43).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (44).JPG",
+                    alt: "Imagen del hotel",
+                },
+                {
+                    type: "image",
+                    src: "/images/alojamiento/hotel_la_nona/image_la_nona (45).JPG",
+                    alt: "Imagen del hotel",
                 },
             ],
             services: [
@@ -67,7 +280,7 @@ const places: Record<string, Record<string, DetailedPlace>> = {
             phone: "+57 123 456 7890",
             whatsapp: "https://wa.me/573001234567",
             location:
-                "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d-72.3887813!3d7.2983333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e66459ab0c3c92d%3A0x6b94f6c7a5d3d7f0!2sHotel%20Ejemplo!5e0!3m2!1ses!2sco!4v1637000000000!5m2!1ses!2sco",
+                "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.399055901831!2d-72.48391768980942!3d7.308986492668455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e689b27e17971e7%3A0x9f6b9ef2758fb049!2sHotel%20Casa%20de%20la%20Nona!5e0!3m2!1ses!2sco!4v1726788340403!5m2!1ses!2sco",
         },
     },
     piscinas: {
@@ -105,6 +318,7 @@ const places: Record<string, Record<string, DetailedPlace>> = {
         },
     },
     // Añade más categorías y lugares aquí
+    // ... otros lugares ...
 };
 
 const place = places[categoria][lugarId];
@@ -115,6 +329,10 @@ if (!place) {
 ---
 
 <Layout title={`${place.name} - Toledo Turismo`}>
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/photoswipe.min.css"
+    />
     <main class="bg-gray-100 min-h-screen py-12">
         <div class="container mx-auto px-4">
             <h1 class="text-4xl font-bold text-center mb-8">{place.name}</h1>
@@ -122,27 +340,42 @@ if (!place) {
             <!-- Galería de fotos y videos -->
             <div class="mb-8">
                 <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pswp-gallery"
+                    id="gallery"
                 >
                     {
                         place.media.map((item, index) => (
-                            <div class="aspect-w-16 aspect-h-9">
+                            <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-lg shadow-md">
                                 {item.type === "image" ? (
-                                    <Image
-                                        src={item.src}
-                                        alt={
-                                            item.alt ||
-                                            `${place.name} - Imagen ${index + 1}`
-                                        }
-                                        width={400}
-                                        height={300}
-                                        class="w-full h-full object-cover rounded-lg shadow-md"
-                                    />
+                                    <a
+                                        href={item.src}
+                                        data-pswp-width={item.width}
+                                        data-pswp-height={item.height}
+                                        class="block w-full h-full relative group"
+                                        target="_blank"
+                                        rel="noopener"
+                                    >
+                                        <Image
+                                            src={item.src}
+                                            alt={
+                                                item.alt ||
+                                                `${place.name} - Imagen ${index + 1}`
+                                            }
+                                            width={400}
+                                            height={300}
+                                            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                                        />
+                                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-25 transition-opacity duration-300 flex items-center justify-center">
+                                            <span class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                                Ver imagen
+                                            </span>
+                                        </div>
+                                    </a>
                                 ) : (
                                     <video
                                         src={item.src}
                                         controls
-                                        class="w-full h-full object-cover rounded-lg shadow-md"
+                                        class="w-full h-full object-cover"
                                     >
                                         Tu navegador no soporta el elemento de
                                         video.
@@ -218,4 +451,16 @@ if (!place) {
             </div>
         </div>
     </main>
+
+    <script>
+        import PhotoSwipeLightbox from "photoswipe/lightbox";
+        import "photoswipe/style.css";
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallery: "#gallery",
+            children: "a",
+            pswpModule: () => import("photoswipe"),
+        });
+        lightbox.init();
+    </script>
 </Layout>
