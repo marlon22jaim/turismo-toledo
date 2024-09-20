@@ -65,7 +65,7 @@ const categoryNames: Record<string, string> = {
   cafe: "Café",
 };
 
-const categoryPlaces = places[categoria];
+const categoryPlaces = places[categoria] || [];
 ---
 
 <Layout title={`${categoryNames[categoria]} en Toledo - Turismo Mágico`}>
