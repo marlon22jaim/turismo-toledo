@@ -30,7 +30,6 @@ const places: Record<string, Place[]> = {
       name: "Hotel LA NONA",
       description: "Un cómodo hotel en el corazón de Toledo.",
       image: "/images/alojamiento/hotel_la_nona/hotel_la_nona_principal.JPG",
-      
     },
     // Añade más lugares aquí
   ],
@@ -66,6 +65,10 @@ const categoryNames: Record<string, string> = {
 };
 
 const categoryPlaces = places[categoria] || [];
+
+if (categoryPlaces.length === 0) {
+  return Astro.redirect("/404");
+}
 ---
 
 <Layout title={`${categoryNames[categoria]} en Toledo - Turismo Mágico`}>
@@ -78,13 +81,13 @@ const categoryPlaces = places[categoria] || [];
         {
           categoryPlaces.map((place) => (
             <a href={`/lugar/${categoria}/${place.id}`} class="block">
-              <div class="bg-white rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-300">
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-300">
                 <Image
                   src={place.image}
                   alt={place.name}
                   width={500}
                   height={300}
-                  class="w-full h-48 object-cover"
+                  class="w-full h-full object-cover"
                 />
                 <div class="p-6">
                   <h2 class="text-2xl font-semibold mb-2">{place.name}</h2>
