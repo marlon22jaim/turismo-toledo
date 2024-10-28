@@ -1,0 +1,76 @@
+---
+import { Icon } from 'astro-icon';
+const menuItems = [
+  { text: 'Inicio', href: '/' },
+  { text: 'Destinos', href: '#explorar' },
+  { text: 'Acerca de', href: '/acerca' },
+  { text: 'Contacto', href: '/contacto' },
+];
+---
+
+<header class="fixed w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-md">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex justify-between items-center h-16">
+      <a href="/" class="flex items-center space-x-2">
+        <img src="/logo.svg" alt="Toledo Turismo" class="h-8 w-auto" />
+        <span class="text-xl font-bold text-primary-600 dark:text-primary-400">Toledo</span>
+      </a>
+
+      <nav class="hidden md:flex space-x-8">
+        {menuItems.map(item => (
+          <a
+            href={item.href}
+            class="text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+          >
+            {item.text}
+          </a>
+        ))}
+      </nav>
+
+      <button
+        id="mobile-menu-button"
+        class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          ></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden bg-white dark:bg-gray-900 shadow-lg absolute w-full"
+  >
+    <div class="px-4 py-2 space-y-1">
+      {menuItems.map(item => (
+        <a
+          href={item.href}
+          class="block px-3 py-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
+        >
+          {item.text}
+        </a>
+      ))}
+    </div>
+  </div>
+</header>
+
+<script>
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileMenuButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script>

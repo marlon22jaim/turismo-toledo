@@ -1,0 +1,35 @@
+---
+interface Image {
+  url: string;
+  alt: string;
+}
+
+interface Props {
+  images: Image[];
+}
+
+const { images } = Astro.props;
+---
+
+<section class="py-12">
+  <h2 class="text-3xl font-bold text-center mb-8">Galería</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    {images.map(image => (
+      <div class="relative aspect-square overflow-hidden rounded-lg cursor-pointer group">
+        <img 
+          src={image.url} 
+          alt={image.alt}
+          class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
+        />
+        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <span class="text-white text-sm">{image.alt}</span>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<script>
+  // Aquí podríamos agregar funcionalidad para un lightbox
+  // cuando se haga clic en las imágenes
+</script>

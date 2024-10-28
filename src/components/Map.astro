@@ -1,0 +1,38 @@
+---
+interface Props {
+  latitude: number;
+  longitude: number;
+  zoom: number;
+  title: string;
+  description: string;
+}
+
+const { latitude, longitude, zoom, title, description } = Astro.props;
+---
+
+<div class="py-16 px-4">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-6">{title}</h2>
+    <p class="text-center mb-8 text-gray-600 dark:text-gray-300">{description}</p>
+    <div class="h-[400px] rounded-lg overflow-hidden shadow-lg">
+      <div id="map" class="w-full h-full"></div>
+    </div>
+  </div>
+</div>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script define:vars={{ latitude, longitude, zoom }}>
+  // Cargar el mapa después de que el DOM esté listo
+  document.addEventListener('DOMContentLoaded', () => {
+    const map = L.map('map').setView([latitude, longitude], zoom);
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker([latitude, longitude])
+      .addTo(map)
+      .bindPopup('Toledo, Norte de Santander')
+      .openPopup();
+  });
+</script>

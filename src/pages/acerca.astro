@@ -1,0 +1,192 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const stats = [
+  {
+    value: '1820',
+    label: 'Año de fundación',
+  },
+  {
+    value: '17,000+',
+    label: 'Habitantes',
+  },
+  {
+    value: '150km²',
+    label: 'Extensión territorial',
+  },
+  {
+    value: '1,643m',
+    label: 'Altura sobre el nivel del mar',
+  },
+];
+
+const timeline = [
+  {
+    year: '1820',
+    title: 'Fundación',
+    description: 'Toledo fue fundado por colonos de la región',
+  },
+  {
+    year: '1886',
+    title: 'Municipalidad',
+    description: 'Se establece oficialmente como municipio',
+  },
+  {
+    year: '1930',
+    title: 'Desarrollo Agrícola',
+    description: 'Inicio del cultivo extensivo de café',
+  },
+  {
+    year: '1975',
+    title: 'Parque Nacional',
+    description: 'Declaración del Parque Nacional Natural Tamá',
+  },
+];
+---
+
+<Layout title="Acerca de Toledo - Historia y Cultura">
+  <main class="pt-20">
+    <!-- Hero Section -->
+    <section class="relative h-[50vh]">
+      <img 
+        src="/images/about/toledo-panorama.jpg" 
+        alt="Panorámica de Toledo"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-black/50"></div>
+      <div class="absolute inset-0 flex items-center justify-center text-white">
+        <div class="text-center">
+          <h1 class="text-5xl font-bold mb-4">Acerca de Toledo</h1>
+          <p class="text-xl max-w-2xl mx-auto">
+            Un municipio con historia, cultura y tradición
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Estadísticas -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-800">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          {stats.map(stat => (
+            <div class="text-center">
+              <div class="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">
+                {stat.value}
+              </div>
+              <div class="text-gray-600 dark:text-gray-300">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Historia -->
+    <section class="py-16">
+      <div class="max-w-4xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">Nuestra Historia</h2>
+        <div class="space-y-12">
+          {timeline.map((event, index) => (
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+              <div class={`md:w-1/2 ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}>
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                  <div class="text-primary-600 dark:text-primary-400 font-bold mb-2">
+                    {event.year}
+                  </div>
+                  <h3 class="text-xl font-bold mb-2">{event.title}</h3>
+                  <p class="text-gray-600 dark:text-gray-300">
+                    {event.description}
+                  </p>
+                </div>
+              </div>
+              <div class={`md:w-1/2 ${index % 2 === 0 ? 'md:order-2' : 'md:order-1'}`}>
+                <img
+                  src={`/images/about/history-${index + 1}.jpg`}
+                  alt={event.title}
+                  class="rounded-lg shadow-lg"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Cultura y Tradiciones -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-800">
+      <div class="max-w-4xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">Cultura y Tradiciones</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">Gastronomía</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">
+              La cocina toledana se caracteriza por sus platos tradicionales como el mute, la arepa de maíz pelado y los dulces artesanales. La influencia de la cultura campesina se refleja en cada preparación.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Festividades</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">
+              Las Ferias y Fiestas de Toledo, celebradas en agosto, son una muestra de la alegría y hospitalidad de nuestra gente, con eventos culturales, deportivos y musicales.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Artesanías</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">
+              Los artesanos locales mantienen vivas las técnicas tradicionales en la elaboración de tejidos, cerámicas y trabajos en madera, creando piezas únicas que reflejan nuestra identidad.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Música y Danza</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">
+              El bambuco, el pasillo y la música carranguera forman parte fundamental de nuestra expresión cultural, con grupos locales que preservan estos géneros tradicionales.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Desarrollo y Futuro -->
+    <section class="py-16">
+      <div class="max-w-4xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-8">Desarrollo y Futuro</h2>
+        <p class="text-center text-gray-600 dark:text-gray-300 mb-12">
+          Toledo se proyecta como un destino turístico sostenible, comprometido con la preservación de su patrimonio natural y cultural, mientras impulsa el desarrollo económico y social de su comunidad.
+        </p>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="bg-primary-100 dark:bg-primary-900 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+              <svg class="w-8 h-8 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Economía Sostenible</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Desarrollo de proyectos productivos que beneficien a la comunidad local.
+            </p>
+          </div>
+          <div class="text-center">
+            <div class="bg-primary-100 dark:bg-primary-900 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+              <svg class="w-8 h-8 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Preservación Ambiental</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Compromiso con la conservación de nuestros recursos naturales.
+            </p>
+          </div>
+          <div class="text-center">
+            <div class="bg-primary-100 dark:bg-primary-900 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+              <svg class="w-8 h-8 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Conectividad</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Mejora continua en infraestructura y servicios digitales.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
