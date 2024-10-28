@@ -1,9 +1,9 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import WeatherWidget from '../components/WeatherWidget.astro';
-import Categories from '../components/Categories.astro';
-import Map from '../components/Map.astro';
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import WeatherWidget from "../components/WeatherWidget.astro";
+import Categories from "../components/Categories.astro";
+import Map from "../components/Map.astro";
 ---
 
 <Layout title="Toledo, Norte de Santander - Turismo">
@@ -11,12 +11,9 @@ import Map from '../components/Map.astro';
     <Hero />
     <WeatherWidget />
     <Categories />
-    <Map 
-      latitude={7.3139}
-      longitude={-72.4828}
-      zoom={13}
-      title="Ubicación de Toledo"
-      description="Toledo, Norte de Santander, Colombia"
+    <Map
+      title="Ubicación de Toledo, Norte de Santander"
+      description="Un vistazo a la ubicación de Toledo en Google Maps"
     />
   </main>
 </Layout>

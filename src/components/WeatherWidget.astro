@@ -1,5 +1,3 @@
----
----
 <section class="py-16 px-4 bg-gray-50 dark:bg-gray-800">
   <div class="max-w-6xl mx-auto">
     <h2 class="text-3xl font-bold text-center mb-12">Clima en Toledo</h2>
@@ -16,14 +14,13 @@
 </section>
 
 <script>
-  const WEATHER_API_KEY = 'YOUR_API_KEY'; // Reemplazar con tu API key de OpenWeatherMap
-  const TOLEDO_LAT = 7.3139;
+  const TOLEDO_LAT = 7.3139;  // Coordenadas de Toledo, Norte de Santander
   const TOLEDO_LON = -72.4828;
 
   async function getWeatherData() {
     try {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${TOLEDO_LAT}&lon=${TOLEDO_LON}&appid=${WEATHER_API_KEY}&units=metric&lang=es`
+        `https://api.open-meteo.com/v1/forecast?latitude=${TOLEDO_LAT}&longitude=${TOLEDO_LON}&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,weathercode&timezone=America/Bogota`
       );
       const data = await response.json();
       return processWeatherData(data);
@@ -35,19 +32,19 @@
 
   function processWeatherData(data) {
     const dailyData = [];
-    const processedDates = new Set();
+    const today = new Date(); // Obtener la fecha actual
 
-    for (const item of data.list) {
-      const date = new Date(item.dt * 1000);
-      const dateString = date.toISOString().split('T')[0];
+    // Recorrer los datos y filtrar para obtener 2 días anteriores, el día actual y 4 días futuros
+    for (let i = 0; i < data.daily.time.length; i++) {
+      const date = new Date(data.daily.time[i]);
 
-      if (!processedDates.has(dateString) && dailyData.length < 7) {
-        processedDates.add(dateString);
+      // Solo agregar los días necesarios
+      if (dailyData.length < 7 && (i === 0 || i === 1 || i >= 2)) {
         dailyData.push({
           date: date,
-          temp: Math.round(item.main.temp),
-          icon: item.weather[0].icon,
-          description: item.weather[0].description
+          maxTemp: Math.round(data.daily.temperature_2m_max[i]),
+          minTemp: Math.round(data.daily.temperature_2m_min[i]),
+          weatherCode: data.daily.weathercode[i]
         });
       }
     }
@@ -59,20 +56,63 @@
     return new Intl.DateTimeFormat('es-ES', { weekday: 'long' }).format(date);
   }
 
+  function getWeatherIcon(weatherCode) {
+    const iconMap = {
+      0: '01d', // Cielo despejado
+      1: '02d', // Pocas nubes
+      2: '03d', // Nubes dispersas
+      3: '04d', // Nubes rotas
+      45: '50d', // Niebla
+      48: '50d', // Niebla
+      61: '09d', // Lluvia
+      63: '09d', // Lluvia
+      80: '09d', // Chubascos
+      81: '09d', // Chubascos
+      82: '09d', // Chubascos
+      95: '11d', // Tormenta
+      96: '11d', // Tormenta
+      99: '11d'  // Tormenta
+    };
+    return iconMap[weatherCode] || '01d'; // Predeterminado a cielo despejado si no se encuentra
+  }
+
+  function getWeatherDescription(weatherCode) {
+    const descriptionMap = {
+      0: 'Cielo despejado',
+      1: 'Pocas nubes',
+      2: 'Nubes dispersas',
+      3: 'Nubes rotas',
+      45: 'Niebla',
+      48: 'Niebla',
+      61: 'Lluvia',
+      63: 'Lluvia',
+      80: 'Chubascos',
+      81: 'Chubascos',
+      82: 'Chubascos',
+      95: 'Tormenta',
+      96: 'Tormenta',
+      99: 'Tormenta'
+    };
+    return descriptionMap[weatherCode] || 'Cielo despejado'; // Predeterminado a cielo despejado si no se encuentra
+  }
+
   function createWeatherCard(data) {
+    const dayNumber = data.date.getDate(); // Obtener el número del día del mes
+    const description = getWeatherDescription(data.weatherCode); // Obtener la descripción del clima
     return `
       <div class="weather-day bg-white dark:bg-gray-700 rounded-lg p-4 text-center transform hover:scale-105 transition-transform duration-300">
-        <h3 class="font-semibold mb-3 capitalize">${getDayName(data.date)}</h3>
+        <h3 class="font-semibold mb-3 capitalize">${getDayName(data.date)} ${dayNumber}</h3>
         <img 
-          src="https://openweathermap.org/img/wn/${data.icon}@2x.png"
-          alt="${data.description}"
+          src="https://openweathermap.org/img/wn/${getWeatherIcon(data.weatherCode)}@2x.png"
+          alt="Icono del clima"
           class="w-16 h-16 mx-auto mb-3"
         />
+        <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">${description}</p> <!-- Descripción en español -->
         <div class="flex justify-center items-center space-x-1">
-          <span class="text-2xl font-bold">${data.temp}</span>
+          <span class="text-2xl font-bold">${data.maxTemp}</span>
           <span class="text-lg">°C</span>
         </div>
-        <p class="text-sm text-gray-600 dark:text-gray-300 mt-2 capitalize">${data.description}</p>
+        <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">Mín: ${data.minTemp}°C</p>
       </div>
     `;
   }
