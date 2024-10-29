@@ -1,8 +1,16 @@
 ---
 import { Icon } from 'astro-icon';
+
+// Get the current path
+const currentPath = Astro.url.pathname;
+const isHomePage = currentPath === '/';
+
 const menuItems = [
   { text: 'Inicio', href: '/' },
-  { text: 'Destinos', href: '#explorar' },
+  { 
+    text: 'Destinos', 
+    href: isHomePage ? '#explorar' : '/#explorar'
+  },
   { text: 'Acerca de', href: '/acerca' },
   { text: 'Contacto', href: '/contacto' },
 ];
@@ -21,6 +29,7 @@ const menuItems = [
           <a
             href={item.href}
             class="text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+            data-astro-reload={item.text === 'Destinos' && !isHomePage}
           >
             {item.text}
           </a>
@@ -58,6 +67,7 @@ const menuItems = [
         <a
           href={item.href}
           class="block px-3 py-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
+          data-astro-reload={item.text === 'Destinos' && !isHomePage}
         >
           {item.text}
         </a>
@@ -72,5 +82,29 @@ const menuItems = [
 
   mobileMenuButton?.addEventListener('click', () => {
     mobileMenu?.classList.toggle('hidden');
+  });
+
+  // Handle smooth scrolling for anchor links on homepage
+  document.addEventListener('DOMContentLoaded', () => {
+    const isHomePage = window.location.pathname === '/';
+    
+    if (isHomePage) {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const href = this.getAttribute('href');
+          if (href === '#') return;
+          
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth'
+            });
+            // Update URL without triggering scroll
+            history.pushState(null, '', href);
+          }
+        });
+      });
+    }
   });
 </script>
