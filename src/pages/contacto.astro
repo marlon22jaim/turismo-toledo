@@ -15,64 +15,64 @@ const contactInfo = [
   {
     icon: 'email',
     title: 'Correo Electrónico',
-    details: ['turismo@toledo-nortedesantander.gov.co', 'info@toledo-nortedesantander.gov.co'],
+    details: ['turismo@toledo-nortedesantander.gov.co', 'alcaldia@toledo-nortedesantander.gov.co'],
   },
   {
     icon: 'schedule',
     title: 'Horario de Atención',
-    details: ['Lunes a Viernes: 8:00 AM - 5:00 PM', 'Sábados: 9:00 AM - 1:00 PM'],
+    details: ['Lunes a Viernes: 7:30 AM - 6:00 PM', 'Sábados: 7:30 AM - 1:00 PM'],
   },
 ];
 
-const quickLinks = [
-  {
-    icon: 'map',
-    title: 'Mapa Turístico',
-    description: 'Descarga nuestro mapa turístico interactivo',
-    href: '#',
-  },
-  {
-    icon: 'calendar_today',
-    title: 'Calendario de Eventos',
-    description: 'Consulta los próximos eventos y festividades',
-    href: '#',
-  },
-  {
-    icon: 'hotel',
-    title: 'Alojamiento',
-    description: 'Directorio de hoteles y hospedajes',
-    href: '#',
-  },
-  {
-    icon: 'restaurant_menu',
-    title: 'Restaurantes',
-    description: 'Guía gastronómica de Toledo',
-    href: '#',
-  },
-];
+// const quickLinks = [
+//   {
+//     icon: 'map',
+//     title: 'Mapa Turístico',
+//     description: 'Descarga nuestro mapa turístico interactivo',
+//     href: '#',
+//   },
+//   {
+//     icon: 'calendar_today',
+//     title: 'Calendario de Eventos',
+//     description: 'Consulta los próximos eventos y festividades',
+//     href: '#',
+//   },
+//   {
+//     icon: 'hotel',
+//     title: 'Alojamiento',
+//     description: 'Directorio de hoteles y hospedajes',
+//     href: '#',
+//   },
+//   {
+//     icon: 'restaurant_menu',
+//     title: 'Restaurantes',
+//     description: 'Guía gastronómica de Toledo',
+//     href: '#',
+//   },
+// ];
 
-const emergencyContacts = [
-  {
-    icon: 'local_hospital',
-    title: 'Hospital Local',
-    phone: '123-456-789',
-  },
-  {
-    icon: 'local_police',
-    title: 'Policía',
-    phone: '123-456-789',
-  },
-  {
-    icon: 'fire_truck',
-    title: 'Bomberos',
-    phone: '123-456-789',
-  },
-  {
-    icon: 'emergency',
-    title: 'Emergencias',
-    phone: '123',
-  },
-];
+// const emergencyContacts = [
+//   {
+//     icon: 'local_hospital',
+//     title: 'Hospital Local',
+//     phone: '123-456-789',
+//   },
+//   {
+//     icon: 'local_police',
+//     title: 'Policía',
+//     phone: '123-456-789',
+//   },
+//   {
+//     icon: 'fire_truck',
+//     title: 'Bomberos',
+//     phone: '123-456-789',
+//   },
+//   {
+//     icon: 'emergency',
+//     title: 'Emergencias',
+//     phone: '123',
+//   },
+// ];
 ---
 
 <Layout title="Contacto - Toledo Turismo">
@@ -80,7 +80,7 @@ const emergencyContacts = [
     <!-- Hero Section -->
     <section class="relative h-[40vh]">
       <img 
-        src="/images/contact-hero.jpg" 
+        src="/images/contactenos_hero.jpg" 
         alt="Contacto Toledo Turismo"
         class="w-full h-full object-cover"
       />
@@ -168,7 +168,7 @@ const emergencyContacts = [
       </div>
 
       <!-- Enlaces Rápidos -->
-      <h2 class="text-3xl font-bold text-center mb-8">Enlaces Rápidos</h2>
+      <!-- <h2 class="text-3xl font-bold text-center mb-8">Enlaces Rápidos</h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
         {quickLinks.map(link => (
           <a href={link.href} class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
@@ -185,10 +185,10 @@ const emergencyContacts = [
             </div>
           </a>
         ))}
-      </div>
+      </div> -->
 
       <!-- Contactos de Emergencia -->
-      <div class="bg-red-50 dark:bg-gray-800 rounded-lg p-8">
+      <!-- <div class="bg-red-50 dark:bg-gray-800 rounded-lg p-8">
         <h2 class="text-3xl font-bold text-center mb-8">Contactos de Emergencia</h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {emergencyContacts.map(contact => (
@@ -207,7 +207,7 @@ const emergencyContacts = [
             </div>
           ))}
         </div>
-      </div>
+      </div> -->
     </div>
   </main>
 </Layout>
