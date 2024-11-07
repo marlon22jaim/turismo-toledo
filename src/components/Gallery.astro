@@ -2,7 +2,6 @@
 interface Image {
   url: string;
   alt: string;
-  type?: 'image' | 'video';
 }
 
 interface Props {
@@ -16,23 +15,15 @@ const { images } = Astro.props;
   <h2 class="text-3xl font-bold text-center mb-8">Galería</h2>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
     {images.map(image => (
-      <div class="relative aspect-square overflow-hidden rounded-lg cursor-pointer group">
-        {image.type === 'video' ? (
-          <video 
-            src={image.url} 
-            alt={image.alt}
-            controls
-            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
-          >
-            Tu navegador no soporta la etiqueta de video.
-          </video>
-        ) : (
-          <img 
-            src={image.url} 
-            alt={image.alt}
-            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
-          />
-        )}
+      <div 
+        class="relative aspect-square overflow-hidden rounded-lg cursor-pointer group"
+        onclick={`window.openImage('${image.url}')`}
+      >
+        <img 
+          src={image.url} 
+          alt={image.alt}
+          class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
+        />
         <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
           <span class="text-white text-sm">{image.alt}</span>
         </div>
@@ -40,3 +31,39 @@ const { images } = Astro.props;
     ))}
   </div>
 </section>
+
+<!-- Modal para pantalla completa -->
+<div id="imageModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50">
+  <img id="modalImage" src="" alt="Imagen seleccionada" class="max-w-full max-h-full rounded-lg" />
+  <button 
+    id="closeImageModal" 
+    class="absolute top-4 right-4 text-white text-2xl font-bold bg-black/50 p-2 rounded-full"
+  >
+    ✕
+  </button>
+</div>
+
+<script>
+  // Registrar las funciones en el ámbito global
+  window.openImage = (url) => {
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    modalImage.src = url;
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  };
+
+  window.closeModal = () => {
+    const modal = document.getElementById('imageModal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  };
+
+  // Vincular los eventos para cerrar el modal
+  document.getElementById('closeImageModal').addEventListener('click', window.closeModal);
+  document.getElementById('imageModal').addEventListener('click', (e) => {
+    if (e.target.id === 'imageModal') {
+      window.closeModal();
+    }
+  });
+</script>
