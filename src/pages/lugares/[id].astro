@@ -1,0 +1,210 @@
+---
+// Importaciones necesarias
+import Layout from "../../layouts/Layout.astro";
+import Map from "../../components/Map.astro";
+import Gallery from "../../components/Gallery.astro";
+import VideoGallery from "../../components/VideoGallery.astro";
+import { lugares } from "../../data/lugares.js";
+
+export async function getStaticPaths() {
+    // Aquí puedes obtener los datos de las rutas dinámicas desde una API, base de datos, etc.
+    const lugares = [
+        { id: "hotel-la-orquidea" },
+        { id: "hotel-la-nona" },
+        // Agrega más objetos según las rutas que tengas
+    ];
+
+    return lugares.map((lugar) => ({
+        params: { id: lugar.id },
+    }));
+}
+
+// Obtener el ID de la URL
+
+const { params } = Astro;
+const lugar = lugares.find((lugar) => lugar.id === params.id);
+
+if (!lugar) {
+    throw new Error(`Lugar con ID ${params.id} no encontrado.`);
+}
+---
+
+<Layout title={`${lugar.title} - Toledo Turismo`}>
+    <main class="pt-20">
+        <article>
+            <!-- Hero Section -->
+            <div class="relative h-[70vh]">
+                <img
+                    src={lugar.heroImage}
+                    alt={lugar.title}
+                    class="w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-black/40"></div>
+                <div
+                    class="absolute inset-0 flex items-center justify-center text-center text-white"
+                >
+                    <div>
+                        <h1 class="text-5xl font-bold mb-4">{lugar.title}</h1>
+                        <p class="text-xl max-w-2xl mx-auto">
+                            {lugar.heroText}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenido Principal -->
+            <div class="max-w-4xl mx-auto px-4 py-12">
+                <section class="prose dark:prose-invert max-w-none">
+                    <h2>Sobre el lugar</h2>
+                    <p>{lugar.description}</p>
+                </section>
+
+                <!-- Servicios (solo si habilitado) -->
+                {
+                    lugar.showSections.services && (
+                        <section class="py-12">
+                            <h2 class="text-3xl font-bold text-center mb-8">
+                                Servicios Disponibles
+                            </h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                {lugar.services.map((service) => (
+                                    <div class="flex items-start space-x-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                        <div class="bg-primary-100 dark:bg-primary-900 p-3 rounded-lg">
+                                            <span class="material-icons text-primary-600 dark:text-primary-400">
+                                                {service.icon}
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-bold mb-1">
+                                                {service.title}
+                                            </h3>
+                                            <p class="text-gray-600 dark:text-gray-300">
+                                                {service.description}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    )
+                }
+
+
+                <!-- Galería de Imágenes (solo si habilitada) -->
+                {
+                    lugar.showSections.gallery && (
+                        <Gallery images={lugar.images} />
+                    )
+                }
+
+                <!-- Galería de Video (solo si habilitada) -->
+                {
+                    lugar.showSections.videoGallery && (
+                        <VideoGallery video={lugar.video} />
+                    )
+                }
+
+                <!-- Contacto y Dirección (solo si habilitado) -->
+                {
+                    lugar.showSections?.contacto && lugar.contacto && (
+                        <section class="py-12">
+                            <h2 class="text-3xl font-bold text-center mb-8">
+                                Contacto y Dirección
+                            </h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                {/* Contacto (habilitado solo si showSections.contacto es true) */}
+                                {lugar.showSections?.contacto &&
+                                    lugar.contacto.telefono && (
+                                        <div class="flex items-start space-x-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                            <div class="bg-primary-100 dark:bg-primary-900 p-3 rounded-lg">
+                                                <span class="material-icons text-primary-600 dark:text-primary-400">
+                                                    Teléfono
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <h3 class="font-bold mb-1">
+                                                    Contacto
+                                                </h3>
+                                                <p class="text-gray-600 dark:text-gray-300">
+                                                    {lugar.contacto.telefono}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                {/* Dirección (habilitada solo si showSections.direccion es true) */}
+                                {lugar.showSections?.direccion &&
+                                    lugar.contacto.direccion && (
+                                        <div class="flex items-start space-x-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                            <div class="bg-primary-100 dark:bg-primary-900 p-3 rounded-lg">
+                                                <span class="material-icons text-primary-600 dark:text-primary-400">
+                                                    Dirección
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <h3 class="font-bold mb-1">
+                                                    Dirección
+                                                </h3>
+                                                <p class="text-gray-600 dark:text-gray-300">
+                                                    {lugar.contacto.direccion}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    )}
+                            </div>
+                        </section>
+                    )
+                }
+
+                <!-- Ubicación (solo si habilitada) -->
+                {
+                    lugar.showSections.map && (
+                        <Map
+                            title={lugar.title}
+                            description={lugar.ubicacion.descripcion}
+                            link={lugar.ubicacion.iframe}
+                        />
+                    )
+                }
+
+                <!-- Información Práctica (solo si habilitada) -->
+                {
+                    lugar.showSections?.infoPractica &&
+                        lugar.infoPractica?.length > 0 && (
+                            <section class="py-12">
+                                <h2 class="text-3xl font-bold mb-6">
+                                    Información Práctica
+                                </h2>
+                                <div class="space-y-4">
+                                    {lugar.infoPractica.map((info, index) => (
+                                        <div
+                                            key={index}
+                                            class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg"
+                                        >
+                                            <h3 class="font-bold mb-2">
+                                                {info.title}
+                                            </h3>
+                                            {/* Verifica si content es un array (para listas) */}
+                                            {Array.isArray(info.content) ? (
+                                                <ul class="list-disc list-inside">
+                                                    {info.content.map(
+                                                        (item, itemIndex) => (
+                                                            <li key={itemIndex}>
+                                                                {item}
+                                                            </li>
+                                                        ),
+                                                    )}
+                                                </ul>
+                                            ) : (
+                                                <p>{info.content}</p> // Si no es una lista, se muestra como párrafo
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
+                        )
+                }
+            </div>
+        </article>
+    </main>
+</Layout>
