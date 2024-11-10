@@ -537,12 +537,12 @@ export const lugares = [
             },
         ],
         contacto: {
-            telefono: "+57 3143813122",
-            direccion: ": Calle 13 #4 – 35 Barrio Centenario",
+            telefono: "+57 3118282434 – +57 3118017254",
+            direccion: "Calle 13 # 4 – 82 Barrio Centenario ",
         },
         ubicacion: {
             iframe:
-               "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1033.0650697186015!2d-72.48303742290702!3d7.310264575578445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e689b2bcd92a541%3A0x99b2be353efbdfb0!2sHotel%20y%20Restaurante%20La%20Embajada%20Toledo!5e0!3m2!1ses!2sco!4v1731196483586!5m2!1ses!2sco",
+               "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1978.6933482049983!2d-72.4832489765868!3d7.310381488484405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e689b5f0fcb6b93%3A0x787e7443124feaaf!2sLa%20Domus!5e0!3m2!1ses!2sco!4v1731198338371!5m2!1ses!2sco",
             descripcion: "Ubicado en Toledo, Norte de Santander",
         },
         infoPractica: [
