@@ -1,4 +1,5 @@
 export const lugares = [
+    // HOTEL LA NONA
     {
         id: "hotel-la-nona",
         title: "Hotel Casa de la Nona",
@@ -6,7 +7,7 @@ export const lugares = [
         heroText: "Ambiente familiar y comodidad para todos!!!",
         description: "...",
         video: {
-            url: "/images/places/alojamiento/hotel-la-nona/hotel-nona-hero-video.mp4",
+            url: "/images/places/alojamiento/hotel-la-nona/hotel-nona-hero-video-optimized.mp4",
             alt: "Video del hotel",
         },
         images: [
@@ -118,7 +119,7 @@ export const lugares = [
             {
                 icon: "Parqueadero",
                 title: "Cuenta con parqueadero",
-                description: "El hotel cuenta con ",
+                description: "El hotel cuenta con servicio de parqueadero",
             },
         ],
         contacto: {
@@ -155,6 +156,7 @@ export const lugares = [
             direccion: true, // Sección de direccion habilitada
         },
     },
+    // HOTEL LA ORQUIDEA
     {
         // HOTEL LA ORQUIDEA
         id: "hotel-la-orquidea",
@@ -164,7 +166,7 @@ export const lugares = [
         heroText: "Ambiente familiar y comodidad para todos!!!",
         description: "...",
         video: {
-            url: "/images/places/alojamiento/hotel-la-orquidea/video_hotel_la_orquidea.mp4",
+            url: "/images/places/alojamiento/hotel-la-orquidea/video_hotel_la_orquidea_optimized.mp4",
             alt: "Video del hotel la Orquidea",
         },
         images: [
@@ -172,82 +174,82 @@ export const lugares = [
                 url: "/images/places/alojamiento/hotel-la-orquidea/hotel_la_orquidea (18).jpg",
                 alt: "foto hotel",
                 type: "image",
-              },
-              {
+            },
+            {
                 url: "/images/places/alojamiento/hotel-la-orquidea/hotel_la_orquidea (20).jpg",
                 alt: "foto hotel",
                 type: "image",
-              },
-              {
+            },
+            {
                 url: "/images/places/alojamiento/hotel-la-orquidea/hotel_la_orquidea (3).jpg",
                 alt: "foto hotel",
                 type: "image",
-              },
-              {
+            },
+            {
                 url: "/images/places/alojamiento/hotel-la-orquidea/hotel_la_orquidea (4).jpg",
                 alt: "foto hotel",
                 type: "image",
-              },
-              {
+            },
+            {
                 url: "/images/places/alojamiento/hotel-la-orquidea/hotel_la_orquidea (6).jpg",
                 alt: "foto hotel",
                 type: "image",
-              },
-              {
+            },
+            {
                 url: "/images/places/alojamiento/hotel-la-orquidea/hotel_la_orquidea (7).jpg",
                 alt: "foto hotel",
                 type: "image",
-              },
-              {
+            },
+            {
                 url: "/images/places/alojamiento/hotel-la-orquidea/hotel_la_orquidea (10).jpg",
                 alt: "foto hotel",
                 type: "image",
-              },
-              {
+            },
+            {
                 url: "/images/places/alojamiento/hotel-la-orquidea/hotel_la_orquidea (11).jpg",
                 alt: "foto hotel",
                 type: "image",
-              },
-              {
+            },
+            {
                 url: "/images/places/alojamiento/hotel-la-orquidea/hotel_la_orquidea (12).jpg",
                 alt: "foto hotel",
                 type: "image",
-              },
-              {
+            },
+            {
                 url: "/images/places/alojamiento/hotel-la-orquidea/hotel_la_orquidea (14).jpg",
                 alt: "foto hotel",
                 type: "image",
-              },
-              {
+            },
+            {
                 url: "/images/places/alojamiento/hotel-la-orquidea/hotel_la_orquidea (15).jpg",
                 alt: "foto hotel",
                 type: "image",
-              },
+            },
         ],
         services: [
             {
                 icon: "Seguridad",
                 title: "Camaras de seguridad",
                 description:
-                  "El hotel dispone de un sistema de camaras de seguridad para mayor tranquilidad",
-              },
-              {
+                    "El hotel dispone de un sistema de camaras de seguridad para mayor tranquilidad",
+            },
+            {
                 icon: "Internet",
                 title: "Servicio de internet",
                 description:
-                  "El hotel cuenta con conectividad Wifi para que puedas estar siempre conectado",
-              },
-              {
+                    "El hotel cuenta con conectividad Wifi para que puedas estar siempre conectado",
+            },
+            {
                 icon: "Variedad",
                 title: "Variedad de camas para todos",
                 description:
-                  "El hotel cuenta con hospedaje para camas matrimoniales, individuales o familiares",
-              },
-              {
+                    "El hotel cuenta con hospedaje para camas matrimoniales, individuales o familiares",
+            },
+            {
                 icon: "Parqueadero",
                 title: "Cuenta con parqueadero",
-                description: "El hotel cuenta con ",
-              },
+                description: "El hotel cuenta con servicio de parqueadero",
+            },
         ],
         contacto: {
             telefono: "+57 3204753194",
@@ -256,6 +258,291 @@ export const lugares = [
         ubicacion: {
             iframe:
                 "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.3902618283287!2d-72.48552568980935!3d7.309979092667468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e689b0493ccf2bf%3A0x128266274937e377!2sHotel%20La%20Orquidea!5e0!3m2!1ses!2sco!4v1731004418044!5m2!1ses!2sco",
+            descripcion: "Ubicado en Toledo, Norte de Santander",
+        },
+        infoPractica: [
+            {
+                title: "Horarios de atención",
+                content: [
+                    "Abierto todos los días de 6:00 AM a 10:00 PM"
+                ],
+            },
+            {
+                title: "Recomendaciones",
+                content: [
+                    "Reservar mínimo un día antes de tomar una habitación",
+                    "Preguntar por disponibilidad de los servicios"
+                ],
+            },
+        ],
+
+        showSections: {
+            services: true,   // Sección de servicios habilitada
+            videoGallery: true, // Sección de video habilitada
+            gallery: true,    // Sección de galería habilitada
+            map: true,        // Sección del mapa habilitada
+            infoPractica: true, // Sección de información práctica habilitada
+            contacto: true, // Sección de contacto habilitada
+            direccion: true, // Sección de direccion habilitada
+        },
+    },
+    // HOTEL LA EMBAJADA
+    {
+        // HOTEL LA EMBAJADA
+        id: "hotel-la-embajada",
+        title: "Hotel La Emabajada",
+        heroImage:
+            "/images/places/alojamiento/hotel-la-embajada/hotel_la_embajada_hero.jpg",
+        heroText: "Ambiente familiar y comodidad para todos!!!",
+        description: "Hospedaje camas Matrimoniales, individuales  y familiares, cuenta con internet, cámaras de seguridad en ambiente familiar.",
+        video: {
+            url: "/images/places/alojamiento/hotel-la-embajada/video_hero_hotel_la_embajada_optimized.mp4",
+            alt: "Video del hotel la Embajada",
+        },
+        images: [
+            {
+                url: "/images/places/alojamiento/hotel-la-embajada/hotel_la_embajada (1).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-la-embajada/hotel_la_embajada (2).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-la-embajada/hotel_la_embajada (3).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-la-embajada/hotel_la_embajada (4).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-la-embajada/hotel_la_embajada (5).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-la-embajada/hotel_la_embajada (6).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-la-embajada/hotel_la_embajada (7).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-la-embajada/hotel_la_embajada (9).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-la-embajada/hotel_la_embajada (10).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-la-embajada/hotel_la_embajada (11).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-la-embajada/hotel_la_embajada (12).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-la-embajada/hotel_la_embajada (13).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+        ],
+        services: [
+            {
+                icon: "Seguridad",
+                title: "Camaras de seguridad",
+                description:
+                    "El hotel dispone de un sistema de camaras de seguridad para mayor tranquilidad",
+            },
+            {
+                icon: "Internet",
+                title: "Servicio de internet",
+                description:
+                    "El hotel cuenta con conectividad Wifi para que puedas estar siempre conectado",
+            },
+            {
+                icon: "Variedad",
+                title: "Variedad de camas para todos",
+                description:
+                    "El hotel cuenta con hospedaje para camas matrimoniales, individuales o familiares",
+            },
+        ],
+        contacto: {
+            telefono: "+57 3143813122",
+            direccion: ": Calle 13 #4 – 35 Barrio Centenario",
+        },
+        ubicacion: {
+            iframe:
+               "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1033.0650697186015!2d-72.48303742290702!3d7.310264575578445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e689b2bcd92a541%3A0x99b2be353efbdfb0!2sHotel%20y%20Restaurante%20La%20Embajada%20Toledo!5e0!3m2!1ses!2sco!4v1731196483586!5m2!1ses!2sco",
+            descripcion: "Ubicado en Toledo, Norte de Santander",
+        },
+        infoPractica: [
+            {
+                title: "Horarios de atención",
+                content: [
+                    "Abierto todos los días de 6:00 AM a 10:00 PM"
+                ],
+            },
+            {
+                title: "Recomendaciones",
+                content: [
+                    "Reservar mínimo un día antes de tomar una habitación",
+                    "Preguntar por disponibilidad de los servicios"
+                ],
+            },
+        ],
+
+        showSections: {
+            services: true,   // Sección de servicios habilitada
+            videoGallery: true, // Sección de video habilitada
+            gallery: true,    // Sección de galería habilitada
+            map: true,        // Sección del mapa habilitada
+            infoPractica: true, // Sección de información práctica habilitada
+            contacto: true, // Sección de contacto habilitada
+            direccion: true, // Sección de direccion habilitada
+        },
+    },
+    // HOTEL LA DOMUS
+    {
+        // HOTEL LA DOMUS
+        id: "hotel-la-domus",
+        title: "Hotel La Domus",
+        heroImage:
+            "/images/places/alojamiento/hotel-la-domus/hotel_la_domus_hero.jpg",
+        heroText: "Ambiente familiar y comodidad para todos!!!",
+        description: "Hospedaje camas Matrimoniales, individuales  y familiares, cuenta con internet, cámaras de seguridad en ambiente familiar.",
+        video: {
+            url: "/images/places/alojamiento/hotel-la-domus/video_hotel_ladomus_optimized.mp4",
+            alt: "Video del hotel la Embajada",
+        },
+        images: [
+            {
+                url: "/images/places/alojamiento/hotel-la-domus/hotel_la_domus (1).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-la-domus/hotel_la_domus (2).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-la-domus/hotel_la_domus (3).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-la-domus/hotel_la_domus (4).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-la-domus/hotel_la_domus (5).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-la-domus/hotel_la_domus (6).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-la-domus/hotel_la_domus (7).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-la-domus/hotel_la_domus (8).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-la-domus/hotel_la_domus (9).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-la-domus/hotel_la_domus (10).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-la-domus/hotel_la_domus (11).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-la-domus/hotel_la_domus (12).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-la-domus/hotel_la_domus (13).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-la-domus/hotel_la_domus (14).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-la-domus/hotel_la_domus (15).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-la-domus/hotel_la_domus (16).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-la-domus/hotel_la_domus (17).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+        ],
+        services: [
+            {
+                icon: "Seguridad",
+                title: "Camaras de seguridad",
+                description:
+                    "El hotel dispone de un sistema de camaras de seguridad para mayor tranquilidad",
+            },
+            {
+                icon: "Internet",
+                title: "Servicio de internet",
+                description:
+                    "El hotel cuenta con conectividad Wifi para que puedas estar siempre conectado",
+            },
+            {
+                icon: "Variedad",
+                title: "Variedad de camas para todos",
+                description:
+                    "El hotel cuenta con hospedaje para camas matrimoniales, individuales o familiares",
+            },
+        ],
+        contacto: {
+            telefono: "+57 3143813122",
+            direccion: ": Calle 13 #4 – 35 Barrio Centenario",
+        },
+        ubicacion: {
+            iframe:
+               "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1033.0650697186015!2d-72.48303742290702!3d7.310264575578445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e689b2bcd92a541%3A0x99b2be353efbdfb0!2sHotel%20y%20Restaurante%20La%20Embajada%20Toledo!5e0!3m2!1ses!2sco!4v1731196483586!5m2!1ses!2sco",
             descripcion: "Ubicado en Toledo, Norte de Santander",
         },
         infoPractica: [

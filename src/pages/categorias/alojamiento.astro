@@ -1,30 +1,57 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import PlaceCard from '../../components/PlaceCard.astro';
+import Layout from "../../layouts/Layout.astro";
+import PlaceCard from "../../components/PlaceCard.astro";
 
 const places = [
   {
-    id: 'hotel-la-orquidea',
-    title: 'Hotel la Orquidea',
-    image: '/images/places/alojamiento/hotel-la-orquidea/hotel_la_orquidea_principal.jpg',
-    description: 'Ambiente familiar y comodidad',
-    tags: ['Camas Matrimonial, familiar e individual', 'Internet', 'Parquedero'],
+    id: "hotel-la-orquidea",
+    title: "Hotel la Orquidea",
+    image:
+      "/images/places/alojamiento/hotel-la-orquidea/hotel_la_orquidea_principal.jpg",
+    description: "Ambiente familiar y comodidad",
+    tags: [
+      "Camas Matrimonial, familiar e individual",
+      "Internet",
+      "Cámaras",
+      "Parquedero",
+    ],
   },
   {
-    id: 'hotel-la-nona',
-    title: 'Hotel Casa de la Nona',
-    image: '/images/places/alojamiento/hotel-la-nona/hero_la_nona.jpg',
-    description: 'Ambiente familiar y comodidad',
-    tags: ['Camas Matrimonial, familiar e individual', 'Internet', 'Parquedero'],
+    id: "hotel-la-nona",
+    title: "Hotel Casa de la Nona",
+    image: "/images/places/alojamiento/hotel-la-nona/hero_la_nona.jpg",
+    description: "Ambiente familiar y comodidad",
+    tags: [
+      "Camas Matrimonial, familiar e individual",
+      "Internet",
+      "Cámaras",
+      "Parquedero",
+    ],
   },
   {
-    id: 'alojamiento/hotel-tamaran',
-    title: 'Hotel Tamaran',
-    image: '/images/places/alojamiento/hotel-tamaran/hotel-tamaran-hero.jpg',
-    description: 'Excelente presentación',
-    tags: ['Camas Matrimonial, familiar e individual'],
+    id: "hotel-la-domus",
+    title: "Hotel la Domus",
+    image:
+      "/images/places/alojamiento/hotel-la-domus/hotel_la_domus_hero.jpg",
+    description: "Excelente presentación",
+    tags: ["Camas Matrimonial, familiar e individual", "Internet", "Cámaras"],
   },
-  
+  {
+    id: "hotel-la-embajada",
+    title: "Hotel la Embajada",
+    image:
+      "/images/places/alojamiento/hotel-la-embajada/hotel_la_embajada_hero.jpg",
+    description: "Excelente presentación",
+    tags: ["Camas Matrimonial, familiar e individual", "Internet", "Cámaras"],
+  },
+
+  {
+    id: "alojamiento/hotel-tamaran",
+    title: "Hotel Tamaran",
+    image: "/images/places/alojamiento/hotel-tamaran/hotel-tamaran-hero.jpg",
+    description: "Excelente presentación",
+    tags: ["Camas Matrimonial, familiar e individual"],
+  },
 ];
 ---
 
@@ -32,15 +59,18 @@ const places = [
   <main class="pt-20">
     <section class="relative py-16 px-4">
       <div class="max-w-6xl mx-auto">
-        <h1 class="text-4xl font-bold text-center mb-4">Alojamiento en Toledo</h1>
-        <p class="text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
-          Descubre los Hoteles, posadas, cabañas, y lugares de hospedaje rural que Toledo tiene para ofrecer.
+        <h1 class="text-4xl font-bold text-center mb-4">
+          Alojamiento en Toledo
+        </h1>
+        <p
+          class="text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto"
+        >
+          Descubre los Hoteles, posadas, cabañas, y lugares de hospedaje rural
+          que Toledo tiene para ofrecer.
         </p>
-        
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {places.map(place => (
-            <PlaceCard {...place} />
-          ))}
+          {places.map((place) => <PlaceCard {...place} />)}
         </div>
       </div>
     </section>
