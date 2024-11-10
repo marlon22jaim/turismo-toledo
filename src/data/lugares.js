@@ -427,7 +427,7 @@ export const lugares = [
         description: "Hospedaje camas Matrimoniales, individuales  y familiares, cuenta con internet, cámaras de seguridad en ambiente familiar.",
         video: {
             url: "/images/places/alojamiento/hotel-la-domus/video_hotel_ladomus_optimized.mp4",
-            alt: "Video del hotel la Embajada",
+            alt: "Video del hotel la Domus",
         },
         images: [
             {
@@ -543,6 +543,129 @@ export const lugares = [
         ubicacion: {
             iframe:
                "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1978.6933482049983!2d-72.4832489765868!3d7.310381488484405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e689b5f0fcb6b93%3A0x787e7443124feaaf!2sLa%20Domus!5e0!3m2!1ses!2sco!4v1731198338371!5m2!1ses!2sco",
+            descripcion: "Ubicado en Toledo, Norte de Santander",
+        },
+        infoPractica: [
+            {
+                title: "Horarios de atención",
+                content: [
+                    "Abierto todos los días de 6:00 AM a 10:00 PM"
+                ],
+            },
+            {
+                title: "Recomendaciones",
+                content: [
+                    "Reservar mínimo un día antes de tomar una habitación",
+                    "Preguntar por disponibilidad de los servicios"
+                ],
+            },
+        ],
+
+        showSections: {
+            services: true,   // Sección de servicios habilitada
+            videoGallery: true, // Sección de video habilitada
+            gallery: true,    // Sección de galería habilitada
+            map: true,        // Sección del mapa habilitada
+            infoPractica: true, // Sección de información práctica habilitada
+            contacto: true, // Sección de contacto habilitada
+            direccion: true, // Sección de direccion habilitada
+        },
+    },
+    // HOTEL LA TAMARAN
+    {
+        // HOTEL LA TAMARAN
+        id: "hotel-tamaran",
+        title: "Hotel Tamarán",
+        heroImage:
+            "/images/places/alojamiento/hotel-tamaran/hero.jpg",
+        heroText: "Ambiente familiar y comodidad para todos!!!",
+        description: "Hospedaje camas Matrimoniales, individuales  y familiares, cuenta con un ambiente familiar.",
+        video: {
+            url: "/images/places/alojamiento/hotel-tamaran/video_hotel_tamaran_optimized.mp4",
+            alt: "Video del hotel Tamarán",
+        },
+        images: [
+            {
+                url: "/images/places/alojamiento/hotel-tamaran/hotel_tamaran (1).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-tamaran/hotel_tamaran (2).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-tamaran/hotel_tamaran (3).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-tamaran/hotel_tamaran (4).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-tamaran/hotel_tamaran (5).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-tamaran/hotel_tamaran (6).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-tamaran/hotel_tamaran (7).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-tamaran/hotel_tamaran (8).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-tamaran/hotel_tamaran (9).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-tamaran/hotel_tamaran (10).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-tamaran/hotel_tamaran (11).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-tamaran/hotel_tamaran (12).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+            {
+                url: "/images/places/alojamiento/hotel-tamaran/hotel_tamaran (13).jpg",
+                alt: "foto hotel",
+                type: "image",
+            },
+        ],
+        services: [
+            {
+                icon: "Variedad",
+                title: "Variedad de camas para todos",
+                description:
+                    "El hotel cuenta con hospedaje para camas matrimoniales, individuales o familiares",
+            },
+        ],
+        contacto: {
+            telefono: "+57 3107782452 - +57 313392518",
+            direccion: "Calle 15 # 4 – 31 Barrio Santa Lucia  ",
+        },
+        ubicacion: {
+            iframe:
+               "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3445.1006454113344!2d-72.48410856096231!3d7.310941007573673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e689b10939996ed%3A0x30a534c7b5d8d45e!2sHotel%20Tamar%C3%A1n!5e0!3m2!1ses!2sco!4v1731199835321!5m2!1ses!2sco",
             descripcion: "Ubicado en Toledo, Norte de Santander",
         },
         infoPractica: [
