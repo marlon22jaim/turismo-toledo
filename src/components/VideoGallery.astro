@@ -14,15 +14,17 @@ const { video } = Astro.props;
 <section class="py-12">
   <div
     class="relative aspect-video overflow-hidden rounded-lg cursor-pointer group"
-    onclick={`window.openVideo('${video.url}')`}
+    id="videoThumbnail"
   >
     <video
       src={video.url}
       alt={video.alt}
       class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
       controls
-      loading="lazy"
-      playsinline></video>
+      playsinline
+      muted
+      preload="metadata"
+    ></video>
 
     <div
       class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
@@ -42,6 +44,7 @@ const { video } = Astro.props;
     class="max-w-full max-h-full rounded-lg"
     controls
     autoplay
+    playsinline
   >
     Tu navegador no soporta la etiqueta de video.
   </video>
@@ -54,32 +57,34 @@ const { video } = Astro.props;
 </div>
 
 <script>
-  // Registrar la función para abrir el video en pantalla completa
-  window.openVideo = (url) => {
+  document.addEventListener("DOMContentLoaded", () => {
+    const videoThumbnail = document.getElementById("videoThumbnail");
     const modal = document.getElementById("videoModal");
     const modalVideo = document.getElementById("modalVideo");
-    modalVideo.src = url;
-    modal.classList.remove("hidden");
-    modal.classList.add("flex");
-    modalVideo.play(); // Inicia la reproducción al abrir el modal
-  };
+    const closeModalButton = document.getElementById("closeVideoModal");
 
-  window.closeModal = () => {
-    const modal = document.getElementById("videoModal");
-    const modalVideo = document.getElementById("modalVideo");
-    modal.classList.add("hidden");
-    modal.classList.remove("flex");
-    modalVideo.pause(); // Pausa el video cuando se cierra el modal
-    modalVideo.currentTime = 0; // Opcional: reinicia el video al principio
-  };
+    // Abre el modal y reproduce el video
+    videoThumbnail.addEventListener("click", () => {
+      modalVideo.src = videoThumbnail.querySelector("video").src;
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+      modalVideo.play();
+    });
 
-  // Vincular los eventos para cerrar el modal
-  document
-    .getElementById("closeVideoModal")
-    .addEventListener("click", window.closeModal);
-  document.getElementById("videoModal").addEventListener("click", (e) => {
-    if (e.target.id === "videoModal") {
-      window.closeModal();
-    }
+    // Cierra el modal y detiene el video
+    const closeModal = () => {
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+      modalVideo.pause();
+      modalVideo.currentTime = 0;
+      modalVideo.src = ""; // Limpia la fuente para evitar problemas de carga
+    };
+
+    closeModalButton.addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => {
+      if (e.target.id === "videoModal") {
+        closeModal();
+      }
+    });
   });
 </script>
